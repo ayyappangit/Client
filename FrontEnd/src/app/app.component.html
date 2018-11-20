@@ -1,0 +1,28 @@
+<div class="main">
+  <div class="right">
+    <div class="todo-container">
+      <h3>To Do</h3>
+      <div id="ToDo" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todoCurrentUserToDo"
+        [cdkDropListConnectedTo]="[doneList]" class="todo-list" (cdkDropListDropped)="drop($event)">
+        <div attr.id="ID{{item.ToDoID}}" class="todo-box" *ngFor="let item of todoCurrentUserToDo" cdkDrag>
+          <div class="todo">
+            <div class="todo-title">{{item.Title}}</div>
+            <div id={{item.ToDoID}} (dblclick)="ondblclick($event)" class={{item.Color}}>{{item.Details}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="todo-container">
+      <h3>Done</h3>
+      <div id="Done" cdkDropList #doneList="cdkDropList" [cdkDropListData]="todoCurrentUserDone"
+        [cdkDropListConnectedTo]="[todoList]" class="todo-list" (cdkDropListDropped)="drop($event)">
+        <div attr.id="ID{{item.ToDoID}}" class="todo-box" *ngFor="let item of todoCurrentUserDone" cdkDrag>
+          <div class="todo">
+            <div class="todo-title">{{item.Title}}</div>
+            <div id={{item.ToDoID}} (dblclick)="ondblclick($event)" class={{item.Color}}>{{item.Details}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
