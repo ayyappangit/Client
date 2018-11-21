@@ -1,6 +1,7 @@
 const sql = require("mssql");
-console.log('Local DB Connected')
+//console.log('Local DB Connected')
 const connect = function () {
+
     const conn = new sql.ConnectionPool({
         user: 'sa',
         password: 'sa',
@@ -8,6 +9,16 @@ const connect = function () {
         database: 'DataBase',
         port: 1433
     });
+    // console.log('Azure Flat DB Connected')
+    // const conn = new sql.ConnectionPool({
+    //     user: 'vaasadmin',
+    //     password: 'Password1',
+    //     server: 'vaasserver.database.windows.net',
+    //     database: 'DataBase',
+    //     port: 1433,
+    //     encrypt: true
+    // });
+
     //console.log('Azure DB Connected')
     // const conn = new sql.ConnectionPool({
     //     user: 'vaasadmin',
